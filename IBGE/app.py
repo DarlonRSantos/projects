@@ -109,6 +109,7 @@ def atualizar():
     return render_template_string(HTML, resultado=None, mensagem=mensagem)
 
 if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)  # Adicione esta linha
     if not os.path.exists(ARQUIVO_MUNICIPIOS):
         buscar_municipios_ibge()
     app.run(debug=True)

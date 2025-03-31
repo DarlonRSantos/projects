@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ibge-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ibge-app
+  template:
+    metadata:
+      labels:
+        app: ibge-app
+    spec:
+      containers:
+      - name: ibge-app
+        image: darlonrsantos/ibge-app:1.0
+        ports:
+        - containerPort: 5000  # Corrigido (sem aspas, como integer)
+        resources:  # Adicionando limites de recursos
+          limits:
+            cpu: "500m"  # 0.5 CPU
+            memory: "512Mi"  # 512 MB
+          requests:
+            cpu: "100m"   # 0.1 CPU
+            memory: "256Mi" # 256 MB

@@ -1,0 +1,18 @@
+FROM python:3.9-slim
+
+WORKDIR /app
+
+# Primeiro copia apenas o requirements.txt para cache eficiente
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Depois copia o resto dos arquivos
+COPY . .
+
+# Configurações do Flask
+ENV FLASK_APP=app.py
+ENV FLASK_ENV=production
+
+EXPOSE 5000
+# Formato JSON corrigido e com host explícito
+CMD ["flask", "run", "--host=0.0.0.0", "--port=5000"]
