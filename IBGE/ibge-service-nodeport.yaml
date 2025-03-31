@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ibge-service
+spec:
+  type: NodePort  # Tipo alterado aqui
+  selector:
+    app: ibge-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000
+      nodePort: 30001  # Opcional: defina uma porta fixa (30000-32767)

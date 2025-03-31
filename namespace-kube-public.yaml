@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  creationTimestamp: "2025-03-31T19:28:36Z"
+  labels:
+    kubernetes.io/metadata.name: kube-public
+  name: kube-public
+  resourceVersion: "33"
+  uid: b1b9ec07-a6a0-4bf2-b787-d4a0f1577af6
+spec:
+  finalizers:
+  - kubernetes
+status:
+  phase: Active

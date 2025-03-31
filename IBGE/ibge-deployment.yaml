@@ -15,12 +15,13 @@ spec:
       containers:
       - name: ibge-app
         image: darlonrsantos/ibge-app:1.0
+        imagePullPolicy: IfNotPresent  # Alterar para "Never" se usando imagens locais no Minikube
         ports:
-        - containerPort: 5000  # Corrigido (sem aspas, como integer)
-        resources:  # Adicionando limites de recursos
+        - containerPort: 5000
+        resources:
           limits:
-            cpu: "500m"  # 0.5 CPU
-            memory: "512Mi"  # 512 MB
+            cpu: "500m"
+            memory: "512Mi"
           requests:
-            cpu: "100m"   # 0.1 CPU
-            memory: "256Mi" # 256 MB
+            cpu: "100m"
+            memory: "256Mi"
